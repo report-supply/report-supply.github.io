@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/wrangler.json",
+  "name": "report-supply-github-io",
+  "compatibility_date": "2026-09-08",
+
+  "pages_build_output_dir": ".",
+
+  "kv_namespaces": [
+    {
+      "binding": "SUPPLY_KV",
+      "id": "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+    }
+  ]
+}
