@@ -1,6 +1,6 @@
 # KSA Supplier Watch — v3.1.0
 
-## [Visit Fraud SuppliersList Site](report-supply.github.io)
+## [Visit Fraud SuppliersList Site](https://report-supply.github.io)
 
 A static, paper-style listing website for community-reported supplier salary/payment issues.
 
