@@ -1,14 +1,20 @@
 {
-  "$schema": "https://json.schemastore.org/wrangler.json",
-  "name": "report-supply-github-io",
-  "compatibility_date": "2026-09-08",
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "WORKER-NAME",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-02-04",
+  "observability": {
+    "enabled": true
+  },
 
-  "pages_build_output_dir": ".",
-
+  // Add this to your wrangler.jsonc
   "kv_namespaces": [
     {
-      "binding": "SUPPLY_KV",
-      "id": "19813bfbd7ef491eb8a887bb0aa948f7"
+      "binding": "KV",
+      "id": "19813bfbd7ef491eb8a887bb0aa948f7",
+      
+      // Optional: preview_id used when running `wrangler dev` for local dev
+      "preview_id": "<ID_OF_PREVIEW_KV_NAMESPACE_FOR_LOCAL_DEVELOPMENT>"
     }
   ]
 }
