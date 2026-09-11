@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KSA Supplier Information</title>
+<meta name="description" content="KSA supplier information and community voting directory. Created by Muaz">
+<link rel="stylesheet" href="style.css">
+<script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})(); window.SUPPLIERS_DATA_PATH='suppliers-info.txt'; window.SUPPLIER_EXTRA_INFO_PATH='supplier-extra-info/data.json';</script>
+</head>
+<body>
+<div class="container">
+<header class="header"><div class="header-top">
+<div class="brand"><div class="brand-mark">⚠</div><div class="title-area"><h1>Suppliers Information</h1><p>Community supplier directory</p></div></div>
+<button class="theme-btn" id="themeToggle" onclick="toggleTheme()"><span id="themeIcon">🌙</span> <span id="themeText">Dark</span></button>
+</div></header>
+<section class="toolbar"><div class="count-badge"><span id="visibleCount">0</span> suppliers listed</div><div class="search-box"><input id="search" type="search" placeholder="Search supplier name..." aria-label="Search suppliers"></div></section>
+<main id="list" class="supplier-list"><div class="empty-state">Loading suppliers…</div></main>
+<div class="modal" id="reportModal" aria-hidden="true" role="dialog" aria-modal="true"><div class="modal-backdrop" onclick="closeInfo()"></div><div class="modal-card"><button class="modal-close" onclick="closeInfo()" aria-label="Close">×</button><div class="modal-label">SUPPLIER INFORMATION</div><h2 id="modalTitle"></h2><div id="modalContent"></div></div></div>
+<footer><div class="copyright" id="copyrightText"></div></footer>
+</div>
+<script src="theme.js"></script><script src="shared.js"></script>
+<script>
+const list=document.getElementById('list'),search=document.getElementById('search'),count=document.getElementById('visibleCount');
+document.getElementById('copyrightText').textContent=`©${new Date().getFullYear()} - All Rights Reserved by Muaz.`;
+function statusClass(id){return classify(id);}
+function statusHtml(id){const c=statusClass(id); const label=statusLabel(id); return `<span class="status-tag ${c}">${label}</span>`;}
+function render(filter=''){const q=filter.trim().toLowerCase(); const rows=SUPPLIERS.filter(s=>(s.name+' '+s.info).toLowerCase().includes(q)); count.textContent=rows.length; if(!rows.length){list.innerHTML='<div class="empty-state">No suppliers found matching your query.</div>';return;} list.innerHTML=rows.map((s,idx)=>{const v=getVotes(s.id), ex=getSupplierExtra(s.id), la=v.myVote==='like'?' active':'', da=v.myVote==='dislike'?' active':''; return `<article class="supplier-card" style="animation-delay:${Math.min(idx*.015,.3)}s"><div class="supplier-top"><div class="supplier-main"><span class="supplier-num">${String(s.id+1).padStart(2,'0')}</span><button class="supplier-name" onclick="showInfo(${s.id})">${escapeHtml(s.name)}</button></div>${statusHtml(s.id)}</div><div class="vote-row"><button class="vote-btn like${la}" onclick="handleVote(${s.id},'like')">${ICON_LIKE}<span class="vc">${v.likes||0}</span></button><button class="vote-btn dislike${da}" onclick="handleVote(${s.id},'dislike')">${ICON_DISLIKE}<span class="vc">${v.dislikes||0}</span></button></div></article>`;}).join('');}
+function infoBlock(label,value){return `<div class="detail-row"><span>${label}</span><div>${value}</div></div>`;}
+function showInfo(id){const s=SUPPLIERS[id], ex=getSupplierExtra(id), v=getVotes(id); document.getElementById('modalTitle').textContent=s.name; let photo=ex.photo?`<img class="office-photo" src="${escapeAttr(ex.photo)}" alt="${escapeAttr(s.name)} supply office">`:`<div class="office-photo placeholder">Photo is not available at the moment <a href="submit/index.html">&lt;try submit?&gt;</a></div>`; let map=ex.mapLocation?`<a class="detail-link" href="${escapeAttr(ex.mapLocation)}" target="_blank" rel="noopener">Open Google Maps Location</a>`:'I will add Location later'; let phone=ex.phoneNumber?`<a class="detail-link" href="tel:${escapeAttr(ex.phoneNumber)}">${escapeHtml(ex.phoneNumber)}</a>`:'Not available at the moment'; let wa=ex.whatsappLink?`<a class="detail-link" href="${escapeAttr(ex.whatsappLink)}" target="_blank" rel="noopener">Open WhatsApp Channel / Group</a>`:'Not available at the moment'; document.getElementById('modalContent').innerHTML=`<div class="detail-photo-wrap"><div class="detail-heading">Supply Office Photo</div>${photo}</div><div class="detail-grid">${infoBlock('Google Map Location',map)}${infoBlock('Phone Number',phone)}${infoBlock('WhatsApp Channel / Group',wa)}</div>${s.info?`<div class="modal-report"><strong>Community report</strong><p>${escapeHtml(s.info)}</p></div>`:''}<div class="modal-votes">${ICON_LIKE} ${v.likes} likes &nbsp; ${ICON_DISLIKE} ${v.dislikes} dislikes</div><p class="modal-footnote">Community information and voting reflects user submissions and sentiment; verify independently.</p>`; const m=document.getElementById('reportModal');m.classList.add('open');m.setAttribute('aria-hidden','false');}
+function closeInfo(){const m=document.getElementById('reportModal');m.classList.remove('open');m.setAttribute('aria-hidden','true');}
+async function handleVote(id,type){await castVote(id,type);render(search.value);}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeInfo();}); search.addEventListener('input',e=>render(e.target.value));
+initSuppliers().then(()=>{render();});
+</script>
+</body></html>
