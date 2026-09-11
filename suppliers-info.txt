@@ -85,7 +85,7 @@ Jamal Jaafar Jamal Cont. Est. |  | 0 | 3
 Spire |  | 0 | 4
 Middle Bahrain Cont. Est. (MBCE) |  | 0 | 65
 ADNOC Arabia (O&M) |  | 0 | 5
-Ajasco |  | 0 | 43
+Ajasco |  | 41 | 43
 Allied Star |  | 0 | 47
 Whitepaper | Unpaid: 3 months | 0 | 6
 Rasha |  | 0 | 2
