@@ -22,7 +22,7 @@ Dharat |  | 0 | 45
 Al Shaheen |  | 0 | 91
 Skyme |  | 0 | 32
 Lumac |  | 0 | 44
-Global Key |  | 0 | 67
+Global Key |  | 64 | 67
 TSC Supply |  | 0 | 99
 Gulf Prix |  | 0 | 57
 Noor United Gen. Cont. Est. |  | 0 | 12
@@ -30,7 +30,7 @@ Eiwan Al Jubail Gen. Est. |  | 0 | 80
 Brickstone |  | 0 | 34
 EAC | New name: Target Future | 0 | 9
 GPC |  | 0 | 42
-Al Sadd Industrial Services |  | 0 | 49
+Al Sadd Industrial Services |  | 49 | 49
 Umar Al Jubail |  | 0 | 58
 Vapcon Gen. Contracting |  | 0 | 8
 Mirza Supplier & Cont. |  | 0 | 6
@@ -61,7 +61,7 @@ Prompt |  | 0 | 4
 Agror Gen. Contracting |  | 0 | 3
 Multi Nova Engineering Services |  | 0 | 3
 Sit Arabian Cont. Co. Ltd. |  | 0 | 64
-A Silver Cont. Est. |  | 0 | 6
+A Silver Cont. Est. |  | 9 | 8
 Utilities & Industrial Power Services |  | 0 | 3
 Bright Plus Cont. Est. |  | 0 | 3
 Middle East Star Gen. Cont. Co. |  | 0 | 64
