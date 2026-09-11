@@ -11,114 +11,113 @@
 #
 # Name | Info | BaseLikes | BaseDislikes
 
-ARD |  | 0 | 0
-Sahara Gen. Contracting | Payment issues | 0 | 0
-Al-Faidi (Yanbu) |  | 0 | 0
+ARD |  | 0 | 71
+Sahara Gen. Contracting | Payment issues | 0 | 32
+Al-Faidi (Yanbu) |  | 0 | 88
 Gulf Globe Cont. (GGC) |  | 0 | 0
-Focus |  | 0 | 0
-MGC Tamimi |  | 0 | 0
-Dhabi Al Jubail |  | 0 | 0
-Dharat |  | 0 | 0
-Al Shaheen |  | 0 | 0
-Skyme |  | 0 | 0
-Lumac |  | 0 | 0
-Global Key |  | 0 | 0
-TSC Supply |  | 0 | 0
-Gulf Prix |  | 0 | 0
-Noor United Gen. Cont. Est. |  | 0 | 0
-Eiwan Al Jubail Gen. Est. |  | 0 | 0
-Brickstone |  | 0 | 0
-EAC | New name: Target Future | 0 | 0
-GPC |  | 0 | 0
-Al Sadd Industrial Services |  | 0 | 0
-Umar Al Jubail |  | 0 | 0
-Vapcon Gen. Contracting |  | 0 | 0
-Mirza Supplier & Cont. |  | 0 | 0
-Sad Al Arabia |  | 0 | 0
-GreenDot |  | 0 | 0
-Explore the Future |  | 0 | 0
-Al Manar Supplier |  | 0 | 0
-NAYS Supplier |  | 0 | 0
-Gulf Mountain |  | 0 | 0
-Fast Way Arabia |  | 0 | 0
-ANCC |  | 0 | 0
-Emad Nayed Al Rasheed |  | 0 | 0
-NMC Gen. Contracting |  | 0 | 0
-Golden Flag |  | 0 | 0
-Global Industrial Solutions |  | 0 | 0
-Naif Al Anazi |  | 0 | 0
-MSH |  | 0 | 0
-Iscom |  | 0 | 0
-Safe Arabia |  | 0 | 0
-Green Engineering Const. Co. |  | 0 | 0
-GGC Global Value Co. |  | 0 | 0
-Bright Solution |  | 0 | 0
-Bright Arabia |  | 0 | 0
-AMA Ali Mohsan |  | 0 | 0
-Firststep |  | 0 | 0
-Al Balatin |  | 0 | 0
-Prompt |  | 0 | 0
-Agror Gen. Contracting |  | 0 | 0
-Multi Nova Engineering Services |  | 0 | 0
-Sit Arabian Cont. Co. Ltd. |  | 0 | 0
-A Silver Cont. Est. |  | 0 | 0
-Utilities & Industrial Power Services |  | 0 | 0
-Bright Plus Cont. Est. |  | 0 | 0
-Middle East Star Gen. Cont. Co. |  | 0 | 0
-FASTEC |  | 0 | 0
-Al-Isha Cont. Est. |  | 0 | 0
-ANFA Engineering |  | 0 | 0
-Future Ambition Cont. Co. |  | 0 | 0
-Sebsco |  | 0 | 0
-Sumoua |  | 0 | 0
-Core Team |  | 0 | 0
-Value Star |  | 0 | 0
-MAAS Industrial Services |  | 0 | 0
-NABATAT Cont. Co. |  | 0 | 0
-Telekom Co. MK |  | 0 | 0
-Eastern Link Gen. Cont. Est. |  | 0 | 0
-MMGC Supplier | Unpaid: 4 months | 0 | 0
-Ex Elitex |  | 0 | 0
-AMF Gen. Cont. Co. |  | 0 | 0
-Titan Cont. Co. |  | 0 | 0
-Jamal Jaafar Jamal Cont. Est. |  | 0 | 0
-Spire |  | 0 | 0
-Middle Bahrain Cont. Est. (MBCE) |  | 0 | 0
-ADNOC Arabia (O&M) |  | 0 | 0
-Ajasco |  | 0 | 0
-Sinopec |  | 0 | 0
-Allied Star |  | 0 | 0
-Whitepaper | Unpaid: 3 months | 0 | 0
-Rasha |  | 0 | 0
-Fmfyc Co. |  | 0 | 0
-Elite Support Cont. Co. LLC |  | 0 | 0
-Craft Innovation Cont. | Unpaid: 10 months | 0 | 0
-Altayar Nahdat Cont. Co. | Unpaid: 4 months | 0 | 0
-JVR Global Co. | Fraud reported | 0 | 0
-Smartech | Payment issues | 0 | 0
-Alkaabi | Unpaid: 10 months | 0 | 0
-Amaziy Global Ltd. Co. | Salary issues | 0 | 0
-Middle East Cont. Co. | Unpaid: 8 months | 0 | 0
-Sinohydro | Salary issues | 0 | 0
-MEG Mubadala East Gen. Cont. Co. | Salary issues | 0 | 0
-Expert Arabia | Unpaid: 6 months | 0 | 0
-Innovative Solutions | Salary issues | 0 | 0
-Msquare | Unpaid: 8 months | 0 | 0
+Focus |  | 0 | 79
+MGC Tamimi |  | 0 | 52
+Dhabi Al Jubail |  | 0 | 82
+Dharat |  | 0 | 45
+Al Shaheen |  | 0 | 91
+Skyme |  | 0 | 32
+Lumac |  | 0 | 44
+Global Key |  | 0 | 67
+TSC Supply |  | 0 | 99
+Gulf Prix |  | 0 | 57
+Noor United Gen. Cont. Est. |  | 0 | 12
+Eiwan Al Jubail Gen. Est. |  | 0 | 80
+Brickstone |  | 0 | 34
+EAC | New name: Target Future | 0 | 9
+GPC |  | 0 | 42
+Al Sadd Industrial Services |  | 0 | 49
+Umar Al Jubail |  | 0 | 58
+Vapcon Gen. Contracting |  | 0 | 8
+Mirza Supplier & Cont. |  | 0 | 6
+Sad Al Arabia |  | 0 | 76
+GreenDot |  | 34 | 5
+Explore the Future |  | 0 | 12
+Al Manar Supplier |  | 0 | 32
+NAYS Supplier |  | 0 | 3
+Gulf Mountain |  | 4 | 58
+Fast Way Arabia |  | 0 | 54
+ANCC |  | 0 | 5
+Emad Nayed Al Rasheed |  | 0 | 93
+NMC Gen. Contracting |  | 0 | 32
+Golden Flag |  | 0 | 24
+Global Industrial Solutions |  | 0 | 76
+Naif Al Anazi |  | 0 | 43
+MSH |  | 0 | 87
+Iscom |  | 0 | 28
+Safe Arabia |  | 0 | 98
+Green Engineering Const. Co. |  | 5 | 36
+GGC Global Value Co. |  | 6 | 55
+Bright Solution |  | 1 | 32
+Bright Arabia |  | 11 | 89
+AMA Ali Mohsan |  | 0 | 21
+Firststep |  | 0 | 28
+Al Balatin |  | 0 | 2
+Prompt |  | 0 | 4
+Agror Gen. Contracting |  | 0 | 3
+Multi Nova Engineering Services |  | 0 | 3
+Sit Arabian Cont. Co. Ltd. |  | 0 | 64
+A Silver Cont. Est. |  | 0 | 6
+Utilities & Industrial Power Services |  | 0 | 3
+Bright Plus Cont. Est. |  | 0 | 3
+Middle East Star Gen. Cont. Co. |  | 0 | 64
+FASTEC |  | 0 | 6
+Al-Isha Cont. Est. |  | 0 | 3
+ANFA Engineering |  | 0 | 42
+Future Ambition Cont. Co. |  | 0 | 5
+Sebsco |  | 4 | 88
+Sumoua |  | 0 | 5
+Core Team |  | 0 | 4
+Value Star |  | 0 | 32
+MAAS Industrial Services |  | 0 | 2
+NABATAT Cont. Co. |  | 0 | 36
+Telekom Co. MK |  | 0 | 90
+Eastern Link Gen. Cont. Est. |  | 0 | 76
+MMGC Supplier | Unpaid: 4 months | 0 | 43
+Ex Elitex |  | 0 | 39
+AMF Gen. Cont. Co. |  | 0 | 5
+Titan Cont. Co. |  | 0 | 23
+Jamal Jaafar Jamal Cont. Est. |  | 0 | 3
+Spire |  | 0 | 4
+Middle Bahrain Cont. Est. (MBCE) |  | 0 | 65
+ADNOC Arabia (O&M) |  | 0 | 5
+Ajasco |  | 0 | 43
+Allied Star |  | 0 | 47
+Whitepaper | Unpaid: 3 months | 0 | 6
+Rasha |  | 0 | 2
+Fmfyc Co. |  | 0 | 32
+Elite Support Cont. Co. LLC |  | 0 | 54
+Craft Innovation Cont. | Unpaid: 10 months | 0 | 32
+Altayar Nahdat Cont. Co. | Unpaid: 4 months | 0 | 79
+JVR Global Co. | Fraud reported | 0 | 49
+Smartech | Payment issues | 0 | 43
+Alkaabi | Unpaid: 10 months | 6 | 89
+Amaziy Global Ltd. Co. | Salary issues | 0 | 43
+Middle East Cont. Co. | Unpaid: 8 months | 0 | 4
+Sinohydro | Salary issues | 0 | 2
+MEG Mubadala East Gen. Cont. Co. | Salary issues | 0 | 71
+Expert Arabia | Unpaid: 6 months | 0 | 97
+Innovative Solutions | Salary issues | 0 | 77
+Msquare | Unpaid: 8 months | 0 | 32
 Saleh Faraj Al Amiri Al Khaldi (G.E.C) |  | 0 | 0
-ASB Shamukh Al Barzco | Unpaid: 6 months | 0 | 0
-Saqco Arabia (Khobar) | Non-payment | 0 | 0
-Makhavi Arabia |  | 0 | 0
-ISD |  | 0 | 0
-Primera |  | 0 | 0
-Green Asia |  | 0 | 0
-Zuwa Group | Delayed payments | 0 | 0
-The Choice Supplier |  | 0 | 0
-Skywalk | Good company, but paying late due to company issues. | 4 | 2
-BEC Bnyan Alinjaz |  | 0 | 0
-SWC |  | 0 | 0
-Moosa Abdul Kareem | Good company, but paying late due to company issues. | 43 | 1
-ATC Supply (near Sony Mosque) |  | 0 | 0
-EMARABIA Global | Unpaid: 4 months | 0 | 0
-ELITE Oasis Co Cont. EST |  | 0 | 0
+ASB Shamukh Al Barzco | Unpaid: 6 months | 0 | 78
+Saqco Arabia (Khobar) | Non-payment | 0 | 66
+Makhavi Arabia |  | 0 | 33
+ISD |  | 0 | 20
+Primera |  | 0 | 43
+Green Asia |  | 0 | 12
+Zuwa Group | Delayed payments | 0 | 94
+The Choice Supplier |  | 0 | 65
+Skywalk | Good supplier, but paying late due to company issues. Anabeeb. | 62 | 19
+BEC Bnyan Alinjaz |  | 0 | 71
+SWC |  | 0 | 45
+Moosa Abdul Kareem | Annabeeb paying late due to company issues. | 89 | 4
+ATC Supply (near Sony Mosque) |  | 0 | 19
+EMARABIA Global | Unpaid: 4 months | 0 | 22
+ELITE Oasis Co Cont. EST |  | 0 | 21
 Al Waseet Adhbi | Unpaid: 5 months (Anabeeb) | 0 | 0
-NBS General Contracting |  | 0 | 0
+NBS General Contracting |  | 0 | 10
