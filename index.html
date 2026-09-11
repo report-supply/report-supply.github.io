@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KSA Supplier Information</title>
+<meta name="description" content="KSA supplier information and community voting directory. Created by Muaz">
+<link rel="stylesheet" href="style.css">
+<script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})(); window.SUPPLIERS_DATA_PATH='suppliers-info.txt'; window.SUPPLIER_EXTRA_INFO_PATH='supplier-extra-info/data.json';</script>
+</head>
+<body>
+<div class="container">
+<header class="header"><div class="header-top">
+<div class="brand"><div class="brand-mark">⚠</div><div class="title-area"><h1>Suppliers Information</h1><p>Community supplier directory</p></div></div>
+<button class="theme-btn" id="themeToggle" onclick="toggleTheme()"><span id="themeIcon">🌙</span> <span id="themeText">Dark</span></button>
+</div>
+<div class="stat-strip" id="statStrip"></div>
+</header>
+<section class="toolbar"><div class="count-badge"><span id="visibleCount">0</span> suppliers listed</div><div class="search-box"><input id="search" type="search" placeholder="Search supplier name..." aria-label="Search suppliers"></div></section>
+<main id="list" class="supplier-list"><div class="empty-state">Loading suppliers…</div></main>
+
+<div class="modal" id="reportModal" aria-hidden="true" role="dialog" aria-modal="true"><div class="modal-backdrop" onclick="closeAllModals()"></div><div class="modal-card"><button class="modal-close" onclick="closeAllModals()" aria-label="Close">×</button><div class="modal-label">SUPPLIER INFORMATION</div><h2 id="modalTitle"></h2><div id="modalContent"></div></div></div>
+
+<div class="modal" id="unknownModal" aria-hidden="true" role="dialog" aria-modal="true"><div class="modal-backdrop" onclick="closeAllModals()"></div><div class="modal-card"><button class="modal-close" onclick="closeAllModals()" aria-label="Close">×</button><div class="unknown-icon" id="unknownIcon"></div><div class="modal-label">STATUS: UNKNOWN</div><h2 id="unknownTitle"></h2><p class="modal-body-text">We don't have enough community votes yet to call this supplier reliable or a fraud risk — the status stays <strong>UNKNOWN</strong> until enough people weigh in.</p><p class="modal-body-text">Worked with them, or know their payment/salary track record? Vote below, or send in what you know and help the community get a clearer picture.</p><div class="modal-actions"><a class="btn-primary" href="submit/index.html">Submit info</a><button class="btn-secondary" onclick="closeAllModals()">Close</button></div></div></div>
+
+<div class="modal" id="devModal" aria-hidden="true" role="dialog" aria-modal="true"><div class="modal-backdrop" onclick="closeAllModals()"></div><div class="modal-card"><button class="modal-close" onclick="closeAllModals()" aria-label="Close">×</button><img class="dev-photo" src="https://files.catbox.moe/2qklbv.jpg" alt="Habibullah Muaz"><div class="dev-name">Habibullah Muaz</div><div class="dev-role">Builder &amp; maintainer of KSA Supplier Watch</div><p class="modal-body-text">This site is an independent, community-run directory — not a government or legal record. It exists to help workers and businesses in Jubail/Dammam share honest experiences with suppliers before doing business with them.</p><p class="modal-body-text">Found an issue, have a suggestion, or want to help maintain the list? Reach out through the submit page.</p><div class="modal-actions"><a class="btn-primary" href="submit/index.html">Contact / submit</a><button class="btn-secondary" onclick="closeAllModals()">Close</button></div></div></div>
+
+<div class="modal" id="welcomeModal" aria-hidden="true" role="dialog" aria-modal="true"><div class="modal-backdrop"></div><div class="modal-card welcome-card"><div class="welcome-icon">⚠</div><h2>Welcome</h2><p>This is a supplier list rated by a large community. Statuses like <strong>HIGH REPUTATION</strong> and <strong>100% FRAUD</strong> come from real Like/Dislike votes, not from us — always read the community report and verify independently before doing business.</p><button class="btn-primary" onclick="closeAllModals()">Got it, show me the list</button></div></div>
+
+<footer><button class="copyright" id="copyrightText" onclick="openModal('devModal')"></button></footer>
+</div>
+
+<div class="sticky-bar"><span>Want to report more suppliers?</span><a class="submit-btn" href="submit/index.html">Submit</a></div>
+
+<script src="theme.js"></script><script src="shared.js"></script>
+<script>
+const list=document.getElementById('list'),search=document.getElementById('search'),count=document.getElementById('visibleCount');
+document.getElementById('copyrightText').textContent=`©${new Date().getFullYear()} - All Rights Reserved by Muaz.`;
+document.getElementById('unknownIcon').innerHTML=ICON_UNKNOWN;
+
+function statusTagHtml(id){
+  const c=classify(id), label=statusLabel(id);
+  if(c==='unknown') return `<button type="button" class="status-tag unknown" onclick="event.stopPropagation();showUnknown(${id})">${label}</button>`;
+  return `<span class="status-tag ${c}">${label}</span>`;
+}
+
+function renderStats(){
+  let unknown=0, good=0, fraud=0;
+  SUPPLIERS.forEach(s=>{ const c=classify(s.id); if(c==='unknown') unknown++; else if(c==='fraud') fraud++; else good++; });
+  document.getElementById('statStrip').innerHTML=`
+    <div class="stat-chip"><div class="stat-num">${SUPPLIERS.length}</div><div class="stat-label">Total</div></div>
+    <div class="stat-chip good"><div class="stat-num">${good}</div><div class="stat-label">Good standing</div></div>
+    <div class="stat-chip fraud"><div class="stat-num">${fraud}</div><div class="stat-label">Fraud flagged</div></div>
+    <div class="stat-chip unknown"><div class="stat-num">${unknown}</div><div class="stat-label">Unknown</div></div>`;
+}
+
+function render(filter=''){
+  const q=filter.trim().toLowerCase();
+  const rows=SUPPLIERS.filter(s=>(s.name+' '+s.info).toLowerCase().includes(q));
+  count.textContent=rows.length;
+  if(!rows.length){ list.innerHTML='<div class="empty-state">No suppliers found matching your query.</div>'; return; }
+  list.innerHTML=rows.map((s,idx)=>{
+    const v=getVotes(s.id), la=v.myVote==='like'?' active':'', da=v.myVote==='dislike'?' active':'';
+    return `<article class="supplier-card" style="animation-delay:${Math.min(idx*.012,.24)}s" onclick="showInfo(${s.id})">
+      <div class="supplier-top">
+        <div class="supplier-main"><span class="supplier-num">${String(s.id+1).padStart(2,'0')}</span><button class="supplier-name" onclick="event.stopPropagation();showInfo(${s.id})">${escapeHtml(s.name)}</button></div>
+        ${statusTagHtml(s.id)}
+      </div>
+      <div class="vote-row">
+        <button class="vote-btn like${la}" onclick="event.stopPropagation();handleVote(${s.id},'like')">${ICON_LIKE}<span class="vc">${v.likes||0}</span></button>
+        <button class="vote-btn dislike${da}" onclick="event.stopPropagation();handleVote(${s.id},'dislike')">${ICON_DISLIKE}<span class="vc">${v.dislikes||0}</span></button>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+function infoBlock(label,value){return `<div class="detail-row"><span>${label}</span><div>${value}</div></div>`;}
+
+function showInfo(id){
+  const s=SUPPLIERS[id], ex=getSupplierExtra(id), v=getVotes(id);
+  document.getElementById('modalTitle').textContent=s.name;
+  let photo=ex.photo?`<img class="office-photo" src="${escapeAttr(ex.photo)}" alt="${escapeAttr(s.name)} supply office">`:`<div class="office-photo placeholder">Photo is not available at the moment <a href="submit/index.html">&lt;try submit?&gt;</a></div>`;
+  let map=ex.mapLocation?`<a class="detail-link" href="${escapeAttr(ex.mapLocation)}" target="_blank" rel="noopener">Open Google Maps Location</a>`:'I will add Location later';
+  let phone=ex.phoneNumber?`<a class="detail-link" href="tel:${escapeAttr(ex.phoneNumber)}">${escapeHtml(ex.phoneNumber)}</a>`:'Not available at the moment';
+  let wa=ex.whatsappLink?`<a class="detail-link" href="${escapeAttr(ex.whatsappLink)}" target="_blank" rel="noopener">Open WhatsApp Channel / Group</a>`:'Not available at the moment';
+  document.getElementById('modalContent').innerHTML=`<div class="detail-photo-wrap"><div class="detail-heading">Supply Office Photo</div>${photo}</div><div class="detail-grid">${infoBlock('Google Map Location',map)}${infoBlock('Phone Number',phone)}${infoBlock('WhatsApp Channel / Group',wa)}</div>${s.info?`<div class="modal-report"><strong>Community report</strong><p>${escapeHtml(s.info)}</p></div>`:''}<div class="modal-votes">${ICON_LIKE} ${v.likes} likes &nbsp; ${ICON_DISLIKE} ${v.dislikes} dislikes</div><p class="modal-footnote">Community information and voting reflects user submissions and sentiment; verify independently.</p>`;
+  openModal('reportModal');
+}
+
+function showUnknown(id){
+  const s=SUPPLIERS[id];
+  document.getElementById('unknownTitle').textContent=s.name;
+  openModal('unknownModal');
+}
+
+function openModal(id){
+  closeAllModals();
+  const m=document.getElementById(id);
+  m.classList.add('open'); m.setAttribute('aria-hidden','false');
+}
+function closeAllModals(){
+  document.querySelectorAll('.modal.open').forEach(m=>{m.classList.remove('open');m.setAttribute('aria-hidden','true');});
+  sessionStorage.setItem('ksaWelcomeShown','1');
+}
+
+async function handleVote(id,type){await castVote(id,type);render(search.value);renderStats();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAllModals();});
+search.addEventListener('input',e=>render(e.target.value));
+
+initSuppliers().then(()=>{
+  render();
+  renderStats();
+  if(!sessionStorage.getItem('ksaWelcomeShown')) openModal('welcomeModal');
+});
+</script>
+</body></html>
