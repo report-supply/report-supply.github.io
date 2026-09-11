@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Submit Supplier Information — KSA Supplier Watch</title>
+<meta name="description" content="Report a supplier or add missing information to the KSA Supplier Watch community directory.">
+<link rel="stylesheet" href="../style.css">
+<script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <div class="header-top">
+      <div class="brand">
+        <div class="brand-mark">⚠</div>
+        <div class="title-area"><h1>Submit a report</h1><p>Help keep the directory accurate</p></div>
+      </div>
+      <button class="theme-btn" onclick="toggleTheme()"><span id="themeIcon">🌙</span> <span id="themeText">Dark</span></button>
+    </div>
+  </header>
+
+  <main class="form-container">
+    <a href="../index.html" class="back-link">← Back to supplier list</a>
+    <p class="form-lede">Add a new supplier, flag a payment or salary issue, or fill in details we're missing — photo, phone, WhatsApp group, map location. Reports are reviewed before the list is updated.</p>
+    <form action="https://api.web3forms.com/submit" method="POST" class="submit-form">
+      <input type="hidden" name="access_key" value="1005f395-35e8-449a-bfdb-fb4f43a3c2ea">
+      <div class="form-group"><label for="name">Supplier name</label><input id="name" name="name" required></div>
+      <div class="form-group"><label for="email">Your email</label><input id="email" name="email" type="email" required></div>
+      <div class="form-group"><label for="message">Information / issue details</label><textarea id="message" name="message" rows="6" placeholder="Payment status, salary issues, photo link, map location, phone, WhatsApp group…" required></textarea></div>
+      <button class="form-submit-btn" type="submit">Submit report</button>
+    </form>
+  </main>
+
+  <footer>
+    <div class="copyright" id="copyrightText"></div>
+  </footer>
+</div>
+<script src="../theme.js"></script>
+<script>
+document.getElementById('copyrightText').textContent = `©${new Date().getFullYear()} - All Rights Reserved by Muaz.`;
+</script>
+</body>
+</html>
